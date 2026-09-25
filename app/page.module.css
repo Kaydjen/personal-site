@@ -7,6 +7,16 @@
 .navv {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   align-items: center;
-  height: 200px;
+  gap: 20px;
+}
+
+
+.tab {
+  background: red;
+  color: #fff;
+  border: none;
+  padding: 10px 20;
+  border-radius: 20px;
 }

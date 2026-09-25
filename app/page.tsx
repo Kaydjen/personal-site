@@ -5,9 +5,9 @@ export default function Home() {
   return (
     <div className={styles.page}>
       <nav className={styles.navv}>
-        <button>GEAR</button>
-        <button>VIBE</button>
-        <button>INFO</button>
+        <button className={styles.tab}>GEAR</button>
+        <button className={styles.tab}>VIBE</button>
+        <button className={styles.tab}>INFO</button>
       </nav>
     </div>
   );
