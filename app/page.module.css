@@ -13,14 +13,6 @@
   gap: 20px;
 }
 
-.general_segment_1 {
-  margin-top: 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 20px;
-}
-
 .segment {
   background: transparent;
   color: #c2c2c2;

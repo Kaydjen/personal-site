@@ -2,43 +2,36 @@
 
 import styles from "./page.module.css";
 import { useState } from "react";
+import { Gear } from "./gear/gear";
 
 export default function Home() {
-  const segment_1 = "GEAR";
-  const segment_2 = "VIBE";
-  const segment_3 = "INFO";
-
-  const [activeTab, setActiveTab] = useState("GEAR");
+  const [activeTab, setActiveTab] = useState<Segment>(Segment.GEAR);
 
   return (
     <div className={styles.page}>
       <nav className={styles.segment_control}>
         <button
-          className={determineSegmentStyle(activeTab, segment_1)}
-          onClick={() => setActiveTab(segment_1)}
+          className={determineSegmentStyle(activeTab, Segment.GEAR)}
+          onClick={() => setActiveTab(Segment.GEAR)}
         >
-          {segment_1}
+          {Segment.GEAR}
         </button>
         <button
-          className={determineSegmentStyle(activeTab, segment_2)}
-          onClick={() => setActiveTab(segment_2)}
+          className={determineSegmentStyle(activeTab, Segment.VIBE)}
+          onClick={() => setActiveTab(Segment.VIBE)}
         >
-          {segment_2}
+          {Segment.VIBE}
         </button>
         <button
-          className={determineSegmentStyle(activeTab, segment_3)}
-          onClick={() => setActiveTab(segment_3)}
+          className={determineSegmentStyle(activeTab, Segment.INFO)}
+          onClick={() => setActiveTab(Segment.INFO)}
         >
-          {segment_3}
+          {Segment.INFO}
         </button>
       </nav>
-      {activeTab === segment_1 ? (
-        <div className={styles.general_segment_1}>{renderSpecs()}</div>
-      ) : activeTab === segment_2 ? (
-        "VIBE CONTEXT"
-      ) : (
-        "INFO CONTEXT"
-      )}
+
+      {getSegmentContent(activeTab)}
+
     </div>
   );
 }
@@ -49,46 +42,24 @@ function determineSegmentStyle(activeTab: string, segment: string): string {
     : styles.segment;
 }
 
-function renderSpecs() {
-  return specs.map((spec) => (
-    <div key={spec.name}>
-      <span>{spec.name}: </span>
-      <span>{spec.value}</span>
-    </div>
-  ));
+function getSegmentContent(activeTab: Segment){
+  switch (activeTab) {
+    case Segment.GEAR:
+      return <Gear />;
+    case Segment.VIBE:
+      return;
+    case Segment.INFO:
+      return;
+  
+    default:
+      break;
+  }
 }
 
-const specs = [
-  {
-    name: "Workstation",
-    value: "DELL Precision 7540",
-  },
-  {
-    name: "OS",
-    value: "Windows 11 Pro — Ghost Spectre Superlite SE",
-  },
-  {
-    name: "CPU",
-    value: "Intel Core i7-9750H (6/12, 2.60 GHz)",
-  },
-  {
-    name: "RAM",
-    value: "32 GB DDR4",
-  },
-  {
-    name: "GPU",
-    value: "NVIDIA Quadro T2000 (4 GB)",
-  },
-  {
-    name: "Storage",
-    value: "1 TB (2 × NVMe SSD Samsung по 512 GB)",
-  },
-  {
-    name: "Audio",
-    value: "FIFINE AmpliGame A8",
-  },
-  {
-    name: "Headphones",
-    value: "Koss Porta Pro",
-  },
-];
+const Segment = {
+  GEAR: "GEAR",
+  VIBE: "VIBE",
+  INFO: "INFO",
+} as const;
+
+type Segment = (typeof Segment)[keyof typeof Segment]; // still need to understand this one
