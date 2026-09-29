@@ -31,7 +31,6 @@ export default function Home() {
       </nav>
 
       {getSegmentContent(activeTab)}
-
     </div>
   );
 }
@@ -42,7 +41,7 @@ function determineSegmentStyle(activeTab: string, segment: string): string {
     : styles.segment;
 }
 
-function getSegmentContent(activeTab: Segment){
+function getSegmentContent(activeTab: Segment) {
   switch (activeTab) {
     case Segment.GEAR:
       return <Gear />;
@@ -50,7 +49,7 @@ function getSegmentContent(activeTab: Segment){
       return;
     case Segment.INFO:
       return;
-  
+
     default:
       break;
   }
