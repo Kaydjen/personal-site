@@ -4,7 +4,8 @@
   color: #fff;
 }
 
-.navv {
+.segment_control {
+  margin-top: 24px;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -12,11 +13,24 @@
   gap: 20px;
 }
 
+.general_segment_1 {
+  margin-top: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
 
-.tab {
-  background: red;
-  color: #fff;
+.segment {
+  background: transparent;
+  color: #c2c2c2;
+  font-size: larger;
   border: none;
   padding: 10px 20;
   border-radius: 20px;
 }
+
+.segment_active {
+  background: #151515;
+}
+
