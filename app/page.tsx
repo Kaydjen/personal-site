@@ -3,6 +3,7 @@
 import styles from "./page.module.css";
 import { useState } from "react";
 import { Gear } from "./gear/gear";
+import { Vibe } from "./vibe/vibe";
 
 export default function Home() {
   const [activeTab, setActiveTab] = useState<Segment>(Segment.GEAR);
@@ -44,9 +45,9 @@ function determineSegmentStyle(activeTab: string, segment: string): string {
 function getSegmentContent(activeTab: Segment) {
   switch (activeTab) {
     case Segment.GEAR:
-      return <Gear />;
+      return <Gear/>;
     case Segment.VIBE:
-      return;
+      return <Vibe/>;
     case Segment.INFO:
       return;
 
