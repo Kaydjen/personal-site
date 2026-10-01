@@ -1,14 +1,14 @@
 import styles from "./gear.module.css";
 
 export function Gear() {
-  return <nav className={styles.general_segment_1}>{renderSpecs()}</nav>;
+  return <nav className={styles.main}>{renderSpecs()}</nav>;
 }
 
 function renderSpecs() {
   return specs.map((spec) => (
-    <div key={spec.name}>
-      <span>{spec.name}: </span>
-      <span>{spec.value}</span>
+    <div key={spec.name} className={styles.spec_row}>
+      <span className={styles.name}>{spec.name}: </span>
+      <span className={styles.value}>{spec.value}</span>
     </div>
   ));
 }
